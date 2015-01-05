@@ -37,20 +37,24 @@ public class DbOperationManager {
 
     private DbOperationManager() {
         this.mContext = MyApplication.getContext();
-        String DB_PATH = "/data"+ Environment.getDataDirectory().getAbsolutePath() + "/"+ MyApplication.getPackName()+"/databases"; //在手机里存放数据库的位置
-        LogUtil.d("DB_PATH="+DB_PATH);
-        String databaseFilename = StorageUtil.getDiskCacheDir(mContext) + "/" + DB_NAME;
+        String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/" + MyApplication.getPackName() + "/databases"; //在手机里存放数据库的位置
+        File dbPath = new File(DB_PATH);
+        if (!dbPath.exists()) {
+            dbPath.mkdirs();
+        }
+       // String DB_PATH = StorageUtil.getDiskCacheDir(mContext);
+        LogUtil.d("DB_PATH=" + DB_PATH);
+        String databaseFilename = DB_PATH + "/" + DB_NAME;
         File dbFile = new File(databaseFilename);
         try {
             if (!dbFile.exists()) {
-                LogUtil.d("create file");
                 InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
                 FileUtil.writeFile(is, databaseFilename);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        dbUtil = DbUtil.create(mContext, StorageUtil.getDiskCacheDir(mContext), DB_NAME);
+        dbUtil = DbUtil.create(mContext, DB_PATH, DB_NAME);
         dbUtil.configAllowTransaction(true);
         dbUtil.configDebug(true);
     }
