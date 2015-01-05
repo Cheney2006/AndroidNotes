@@ -1,6 +1,7 @@
 package com.keertech.androidnotes.util;
 
 import android.content.Context;
+import android.os.Environment;
 
 import com.keertech.androidnotes.R;
 import com.keertech.androidnotes.application.MyApplication;
@@ -11,6 +12,7 @@ import com.yftools.db.sqlite.SqlInfo;
 import com.yftools.db.sqlite.WhereBuilder;
 import com.yftools.db.table.DbModel;
 import com.yftools.exception.DbException;
+import com.yftools.util.FileUtil;
 import com.yftools.util.StorageUtil;
 
 import java.io.File;
@@ -30,30 +32,25 @@ public class DbOperationManager {
     public static final String DB_NAME = "android_notes.db";
     private static DbOperationManager instance;
 
-    private final Context context;
+    private final Context mContext;
     private final DbUtil dbUtil;
 
     private DbOperationManager() {
-        LogUtil.d("new Db");
-        this.context = MyApplication.getContext();
-        String databaseFilename = StorageUtil.getDiskCacheDir(context) + "/" + DB_NAME;
+        this.mContext = MyApplication.getContext();
+        String DB_PATH = "/data"+ Environment.getDataDirectory().getAbsolutePath() + "/"+ MyApplication.getPackName()+"/databases"; //在手机里存放数据库的位置
+        LogUtil.d("DB_PATH="+DB_PATH);
+        String databaseFilename = StorageUtil.getDiskCacheDir(mContext) + "/" + DB_NAME;
         File dbFile = new File(databaseFilename);
         try {
             if (!dbFile.exists()) {
-                InputStream is =context.getResources().openRawResource(R.raw.android_notes);
-                FileOutputStream fos = new FileOutputStream(databaseFilename);
-                byte[] buffer = new byte[8192];
-                int count = 0;
-                while ((count = is.read(buffer)) > 0) {
-                    fos.write(buffer, 0, count);
-                }
-                fos.close();
-                is.close();
+                LogUtil.d("create file");
+                InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
+                FileUtil.writeFile(is, databaseFilename);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        dbUtil = DbUtil.create(context,StorageUtil.getDiskCacheDir(context),DB_NAME);
+        dbUtil = DbUtil.create(mContext, StorageUtil.getDiskCacheDir(mContext), DB_NAME);
         dbUtil.configAllowTransaction(true);
         dbUtil.configDebug(true);
     }
@@ -69,8 +66,8 @@ public class DbOperationManager {
         return instance;
     }
 
-    public static void reset(){
-        instance=null;
+    public static void reset() {
+        instance = null;
     }
 
 //    private static class SingletonHolder {
@@ -155,7 +152,7 @@ public class DbOperationManager {
 
     public void close() {
         dbUtil.close();
-        instance=null;
+        instance = null;
     }
 
 }

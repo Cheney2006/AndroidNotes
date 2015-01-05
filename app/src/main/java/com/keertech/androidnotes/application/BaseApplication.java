@@ -11,13 +11,11 @@ import com.yftools.exception.CustomCrashHandler;
 public abstract class BaseApplication extends Application {
     protected static Context context;
     protected static String packageName;
-    protected static Application application;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        BaseApplication.application = this;
-        context = getApplicationContext();
+        context = this;
         packageName = getPackageName();
         //设置异常处理类
         CustomCrashHandler.getInstance().setCustomCrashHandler(this);
@@ -36,11 +34,6 @@ public abstract class BaseApplication extends Application {
      */
     public static Context getContext() {
         return context;
-    }
-
-
-    public static Application getApplication() {
-        return BaseApplication.application;
     }
 
     public static String getPackName() {
