@@ -18,6 +18,7 @@ package com.keertech.androidnotes.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -67,5 +68,15 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
 
     public void setTitle(int id) {
         toolbar.setTitle(getResources().getString(id));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

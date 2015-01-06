@@ -23,7 +23,10 @@ import java.util.List;
  */
 public class GridMenuAdapter extends AbstractAdapter<Category> {
 
-    int[] icons = {R.drawable.icon_basic, R.drawable.icon_view, R.drawable.icon_component};
+    int[] icons = {R.drawable.icon_basic, R.drawable.icon_view, R.drawable.icon_component,
+            R.drawable.icon_database, R.drawable.icon_java, R.drawable.icon_high,
+            R.drawable.icon_question, R.drawable.icon_optimize
+    };
 
     public GridMenuAdapter(Context context, List<Category> dataList) {
         super(context, dataList);
@@ -40,11 +43,6 @@ public class GridMenuAdapter extends AbstractAdapter<Category> {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-//        int height = AndroidUtil.getDisplayHeight(getContext()) - AndroidUtil.dip2px(getContext(), AndroidUtil.px2dip(getContext(),(int)(AndroidUtil.getDisplayHeight(getContext())*0.22))+80);
-//        int size = getDatas().size() / 2;
-//        int verticalSpacing = size * getContext().getResources().getDimensionPixelOffset(R.dimen.main_grid_vertical_spacing);
-        GridView.LayoutParams params = new GridView.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, getContext().getResources().getDimensionPixelOffset(R.dimen.dimen_grid));
-        view.setLayoutParams(params);
         viewHolder.icon_iv.setImageResource(icons[position]);
         viewHolder.name_tv.setText(getItem(position).name);
         return view;

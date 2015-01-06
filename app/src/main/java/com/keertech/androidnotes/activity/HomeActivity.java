@@ -28,7 +28,6 @@ public class HomeActivity extends AbstractToolBarActivity {
         ViewUtil.inject(this);
         try {
             List<Category> categoryList = DbOperationManager.getInstance().getBeans(Category.class);
-            LogUtil.d(categoryList.size()+"");
             gridView.setAdapter(new GridMenuAdapter(mContext, categoryList));
         } catch (DbException e) {
             LogUtil.e(e);

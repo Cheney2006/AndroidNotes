@@ -23,7 +23,7 @@
 
     <color name="windowBackgroundColor">#ffffff</color>
     <color name="black_translucent">#80000000</color>
-    <color name="color_pressed">#d6edf1</color>
+    <color name="color_pressed">#ff63cbc7</color><!--80cbc4--><!--d6edf1--><!--ff63cbc7-->
     <color name="color_black">#373737</color>
     <color name="color_gray">#818181</color>
 </resources>
