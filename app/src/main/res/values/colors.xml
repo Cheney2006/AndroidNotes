@@ -21,6 +21,9 @@
     <color name="colorSecondary">@color/material_deep_teal_200</color>
     <color name="colorSecondaryDark">@color/material_deep_teal_500</color>
 
-    <color name="windowBackgroundColor">#333333</color>
+    <color name="windowBackgroundColor">#ffffff</color>
     <color name="black_translucent">#80000000</color>
+    <color name="color_pressed">#d6edf1</color>
+    <color name="color_black">#373737</color>
+    <color name="color_gray">#818181</color>
 </resources>
