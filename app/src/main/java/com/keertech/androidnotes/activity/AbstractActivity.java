@@ -3,6 +3,7 @@ package com.keertech.androidnotes.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 /**
@@ -31,4 +32,6 @@ public abstract class AbstractActivity extends ActionBarActivity {
     public void displayToast(String msg) {
         Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
     }
+
+
 }

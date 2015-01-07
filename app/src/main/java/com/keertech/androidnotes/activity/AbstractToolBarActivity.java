@@ -18,10 +18,12 @@ package com.keertech.androidnotes.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.keertech.androidnotes.R;
+import com.yftools.LogUtil;
 
 public abstract class AbstractToolBarActivity extends AbstractActivity {
 
@@ -57,11 +59,28 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
         return (ViewGroup) findViewById(R.id.content_fl);
     }
 
+    public void hideHomeAsUp() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                LogUtil.d("click");
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     protected void setActionBarIcon(int iconRes) {
         toolbar.setNavigationIcon(iconRes);
     }
 
     protected void setTitle(String title) {
+        LogUtil.d("title="+title);
         toolbar.setTitle(title);
     }
 
