@@ -29,12 +29,11 @@ public class HomeActivity extends AbstractToolBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportActionBar().setTitle(R.string.app_name);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        setTitle(R.string.app_name);
+        hideHomeAsUp();
         ViewUtil.inject(this);
         try {
             List<Category> categoryList = DbOperationManager.getInstance().getBeans(Category.class);
-            LogUtil.d(categoryList.size() + "");
             adapter = new GridMenuAdapter(mContext, categoryList);
             gridView.setAdapter(adapter);
         } catch (DbException e) {

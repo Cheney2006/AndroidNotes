@@ -56,6 +56,8 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        // Menu item click 的监听事件一樣要在设定 setSupportActionBar后 才有作用
+        //toolbar.setOnMenuItemClickListener(onMenuItemClick);
         return (ViewGroup) findViewById(R.id.content_fl);
     }
 
@@ -76,25 +78,20 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
     }
 
     protected void setActionBarIcon(int iconRes) {
+        // Navigation Icon 要设定在setSupoortActionBar后 才有作用
         toolbar.setNavigationIcon(iconRes);
     }
 
     protected void setTitle(String title) {
-        LogUtil.d("title="+title);
-        toolbar.setTitle(title);
+        //Title要在设定 setSupoortActionBar前才有作用
+        //toolbar.setTitle(title);//
+        getSupportActionBar().setTitle(title);
     }
 
     public void setTitle(int id) {
-        toolbar.setTitle(getResources().getString(id));
+        getSupportActionBar().setTitle(id);
+        //toolbar.setTitle(getResources().getString(id));
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }

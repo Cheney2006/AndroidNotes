@@ -4,4 +4,33 @@
         <item name="android:textSize">@dimen/dimen_font_18</item>
         <item name="android:textColor">@color/color_black</item>
     </style>
+
+    <style name="ListItemLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingBottom">@dimen/dimen_layout_padding_top</item>
+        <item name="android:paddingTop">@dimen/dimen_layout_padding_top</item>
+        <item name="android:paddingLeft">@dimen/dimen_layout_padding_left</item>
+        <item name="android:paddingRight">@dimen/dimen_layout_padding_left</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_click</item>
+    </style>
+
+    <style name="ItemTitle">
+        <item name="android:textSize">@dimen/dimen_font_18</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ItemSubTitle">
+        <item name="android:textSize">@dimen/dimen_font_14</item>
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginTop">@dimen/dimen_sub_margin_top</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
