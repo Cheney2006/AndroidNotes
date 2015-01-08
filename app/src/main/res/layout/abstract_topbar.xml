@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <include layout="@layout/abstract_bar"/>
+    <include layout="@layout/abstract_bar" />
 
-    <FrameLayout
-        android:id="@+id/content_fl"
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -27,4 +27,5 @@
     <color name="color_black">#373737</color>
     <color name="color_gray">#818181</color>
     <color name="color_white">#ffffff</color>
+    <color name="color_tab_pressed">#FF339690</color>
 </resources>

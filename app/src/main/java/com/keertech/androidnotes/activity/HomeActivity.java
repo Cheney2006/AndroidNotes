@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.keertech.androidnotes.R;
+import com.keertech.androidnotes.activity.base.AbstractTopBarActivity;
 import com.keertech.androidnotes.adapter.GridMenuAdapter;
 import com.keertech.androidnotes.bean.Category;
 import com.keertech.androidnotes.util.DbOperationManager;

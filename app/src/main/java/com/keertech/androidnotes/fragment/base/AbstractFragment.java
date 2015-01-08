@@ -1,4 +1,4 @@
-package com.keertech.androidnotes.fragment;
+package com.keertech.androidnotes.fragment.base;
 
 import android.content.Context;
 import android.os.Bundle;

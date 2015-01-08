@@ -1,4 +1,4 @@
-package com.keertech.androidnotes.bean;
+package com.keertech.androidnotes.bean.base;
 
 import java.io.Serializable;
 

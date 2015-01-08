@@ -1,4 +1,4 @@
-package com.keertech.androidnotes.adapter;
+package com.keertech.androidnotes.adapter.base;
 
 import android.content.Context;
 import android.view.LayoutInflater;

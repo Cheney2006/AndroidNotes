@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.keertech.androidnotes.R;
+import com.keertech.androidnotes.activity.base.AbstractTopBarActivity;
 import com.keertech.androidnotes.adapter.ArticleListAdapter;
 import com.keertech.androidnotes.bean.Article;
 import com.keertech.androidnotes.bean.Category;

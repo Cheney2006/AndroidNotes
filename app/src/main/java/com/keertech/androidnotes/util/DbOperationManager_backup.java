@@ -25,17 +25,20 @@ import java.util.List;
  * Created by cy on 2014/7/29.
  * *****************************************
  */
-public class DbOperationManager {
+public class DbOperationManager_backup {
 
     public static final String DB_NAME = "android_notes.db";
     public static final int DB_VERSION = 1;
-    private static DbOperationManager instance;
+    private static DbOperationManager_backup instance;
 
     private final Context mContext;
     private final DbUtil dbUtil;
 
-    private DbOperationManager() {
+    private DbOperationManager_backup() {
         this.mContext = MyApplication.getContext();
+        //第一次创建数据库（初始版本号为0）时，不会执行onUpgrade
+        //TODO　让他第一次执行时也经过onUpgrade，下面就可以取消
+        importDatabase();
         dbUtil = DbUtil.create(mContext, DB_NAME, DB_VERSION, new DbUtil.DbUpgradeListener() {
             @Override
             public void onUpgrade(DbUtil dbUtil, int oldVersion, int newVersion) {
@@ -49,29 +52,38 @@ public class DbOperationManager {
     }
 
     private void importDatabase() {
+       boolean isFirst=false;
         String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/" + MyApplication.getPackName() + "/databases"; //在手机里存放数据库的位置
         File dbPath = new File(DB_PATH);
         if (!dbPath.exists()) {
             dbPath.mkdirs();
+            isFirst=true;
         }
         // String DB_PATH = StorageUtil.getDiskCacheDir(mContext);
         LogUtil.d("DB_PATH=" + DB_PATH);
         String databaseFilename = DB_PATH + "/" + DB_NAME;
         File dbFile = new File(databaseFilename);
         try {
-            dbFile.deleteOnExit();//如果存在就删除
-            InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
-            FileUtil.writeFile(is, databaseFilename);
+            if (isFirst) {//第一次时
+                if (!dbFile.exists()) {
+                    InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
+                    FileUtil.writeFile(is, databaseFilename);
+                }
+            } else {
+                dbFile.deleteOnExit();//如果存在就删除
+                InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
+                FileUtil.writeFile(is, databaseFilename);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static DbOperationManager getInstance() {
+    public static DbOperationManager_backup getInstance() {
         if (instance == null) {
-            synchronized (DbOperationManager.class) {
+            synchronized (DbOperationManager_backup.class) {
                 if (instance == null) {
-                    instance = new DbOperationManager();
+                    instance = new DbOperationManager_backup();
                 }
             }
         }

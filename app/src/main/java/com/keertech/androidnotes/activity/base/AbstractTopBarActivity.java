@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.keertech.androidnotes.activity;
+package com.keertech.androidnotes.activity.base;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -62,7 +62,7 @@ public abstract class AbstractTopBarActivity extends AbstractActivity {
         }
         // Menu item click 的监听事件一樣要在设定 setSupportActionBar后 才有作用
         //toolbar.setOnMenuItemClickListener(onMenuItemClick);
-        return (ViewGroup) findViewById(R.id.content_fl);
+        return (ViewGroup) findViewById(R.id.content_layout);
     }
 
     public void hideHomeAsUp() {

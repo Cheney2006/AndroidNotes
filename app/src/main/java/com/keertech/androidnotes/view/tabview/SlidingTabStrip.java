@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.keertech.androidnotes.view;
+package com.keertech.androidnotes.view.tabview;
 
 import android.R;
 import android.content.Context;

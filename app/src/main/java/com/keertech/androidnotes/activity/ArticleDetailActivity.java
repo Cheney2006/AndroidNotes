@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.keertech.androidnotes.R;
+import com.keertech.androidnotes.activity.base.AbstractTopBarActivity;
 import com.keertech.androidnotes.bean.Article;
 import com.keertech.androidnotes.bean.Category;
 import com.yftools.ViewUtil;

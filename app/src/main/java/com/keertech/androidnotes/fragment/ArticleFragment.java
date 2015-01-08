@@ -1,22 +1,27 @@
 package com.keertech.androidnotes.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.keertech.androidnotes.R;
+import com.keertech.androidnotes.activity.ArticleDetailActivity;
 import com.keertech.androidnotes.adapter.ArticleListAdapter;
 import com.keertech.androidnotes.bean.Article;
 import com.keertech.androidnotes.bean.ChildCategory;
+import com.keertech.androidnotes.fragment.base.AbstractFragment;
 import com.keertech.androidnotes.util.DbOperationManager;
 import com.yftools.LogUtil;
 import com.yftools.ViewUtil;
 import com.yftools.db.sqlite.Selector;
 import com.yftools.exception.DbException;
 import com.yftools.view.annotation.ViewInject;
+import com.yftools.view.annotation.event.OnItemClick;
 
 import java.util.List;
 
@@ -73,5 +78,13 @@ public class ArticleFragment extends AbstractFragment {
             adapter.setDataList(articleList);
             adapter.notifyDataSetChanged();
         }
+    }
+
+    @OnItemClick(R.id.listView)
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = getActivity().getIntent();
+        intent.setClass(mContext, ArticleDetailActivity.class);
+        intent.putExtra("article", articleList.get(position));
+        startActivity(intent);
     }
 }

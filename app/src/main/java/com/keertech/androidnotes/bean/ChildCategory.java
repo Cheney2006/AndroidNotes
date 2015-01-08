@@ -1,5 +1,6 @@
 package com.keertech.androidnotes.bean;
 
+import com.keertech.androidnotes.bean.base.AbstractBean;
 import com.yftools.db.annotation.Table;
 
 /**

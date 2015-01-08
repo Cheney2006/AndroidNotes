@@ -3,12 +3,11 @@ package com.keertech.androidnotes.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.keertech.androidnotes.R;
+import com.keertech.androidnotes.adapter.base.AbstractAdapter;
 import com.keertech.androidnotes.bean.Category;
 import com.yftools.ViewUtil;
 import com.yftools.view.annotation.ViewInject;
