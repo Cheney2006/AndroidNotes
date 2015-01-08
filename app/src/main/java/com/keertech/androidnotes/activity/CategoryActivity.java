@@ -51,10 +51,16 @@ public class CategoryActivity extends AbstractTopBarActivity {
            // slidingTabLayout.setCustomTabView(R.layout.tab_view, 0);
             slidingTabLayout.setTabViewTextBackground(R.drawable.bg_tab_click);
             slidingTabLayout.setViewPager(viewPager);
+            //slidingTabLayout.setSelectedIndicatorColors(Color.WHITE);
             slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
                 @Override
                 public int getIndicatorColor(int position) {
                     return Color.WHITE;
+                }
+
+                @Override
+                public int getDividerColor(int position) {
+                    return 0xffcdcdcd;
                 }
             });
         } catch (DbException e) {
