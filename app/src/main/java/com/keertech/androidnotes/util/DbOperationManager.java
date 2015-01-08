@@ -37,11 +37,11 @@ public class DbOperationManager {
     private DbOperationManager() {
         this.mContext = MyApplication.getContext();
         //第一次创建数据库（初始版本号为0）时，不会执行onUpgrade
+        //TODO　让他第一次执行时也经过onUpgrade，下面就可以取消
         importDatabase();
         dbUtil = DbUtil.create(mContext, DB_NAME, DB_VERSION, new DbUtil.DbUpgradeListener() {
             @Override
             public void onUpgrade(DbUtil dbUtil, int oldVersion, int newVersion) {
-                LogUtil.d("onUpgrade");
                 if (oldVersion < newVersion) {
                     importDatabase();
                 }
@@ -52,17 +52,19 @@ public class DbOperationManager {
     }
 
     private void importDatabase() {
+       boolean isFirst=false;
         String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/" + MyApplication.getPackName() + "/databases"; //在手机里存放数据库的位置
         File dbPath = new File(DB_PATH);
         if (!dbPath.exists()) {
             dbPath.mkdirs();
+            isFirst=true;
         }
         // String DB_PATH = StorageUtil.getDiskCacheDir(mContext);
         LogUtil.d("DB_PATH=" + DB_PATH);
         String databaseFilename = DB_PATH + "/" + DB_NAME;
         File dbFile = new File(databaseFilename);
         try {
-            if (DB_VERSION == 1) {//第一次时
+            if (isFirst) {//第一次时
                 if (!dbFile.exists()) {
                     InputStream is = mContext.getResources().openRawResource(R.raw.android_notes);
                     FileUtil.writeFile(is, databaseFilename);

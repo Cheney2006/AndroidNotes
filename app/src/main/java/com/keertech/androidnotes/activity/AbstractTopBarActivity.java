@@ -23,9 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.keertech.androidnotes.R;
-import com.yftools.LogUtil;
-
-public abstract class AbstractToolBarActivity extends AbstractActivity {
+/**
+ * *****************************************
+ * Description ：toolbar 作为actionbar固定在头部
+ * Created by cy on 2015/1/8.
+ * *****************************************
+ */
+public abstract class AbstractTopBarActivity extends AbstractActivity {
 
     private Toolbar toolbar;
 
@@ -50,7 +54,7 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
     }
 
     private ViewGroup init() {
-        super.setContentView(R.layout.abstract_toolbar);
+        super.setContentView(R.layout.abstract_topbar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -69,7 +73,6 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                LogUtil.d("click");
                 finish();
                 return true;
             default:
@@ -90,6 +93,7 @@ public abstract class AbstractToolBarActivity extends AbstractActivity {
 
     public void setTitle(int id) {
         getSupportActionBar().setTitle(id);
+        //Title要在设定 setSupoortActionBar前才有作用
         //toolbar.setTitle(getResources().getString(id));
     }
 

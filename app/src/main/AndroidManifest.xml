@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ArticleListActivity" />
+        <activity android:name=".activity.ArticleDetailActivity" />
+        <activity android:name=".activity.CategoryActivity" />
     </application>
 
 </manifest>

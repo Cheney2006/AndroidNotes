@@ -19,7 +19,7 @@ import com.yftools.view.annotation.event.OnItemClick;
 import java.util.List;
 
 
-public class HomeActivity extends AbstractToolBarActivity {
+public class HomeActivity extends AbstractTopBarActivity {
 
     @ViewInject(R.id.gridView)
     private GridView gridView;
@@ -43,8 +43,17 @@ public class HomeActivity extends AbstractToolBarActivity {
 
     @OnItemClick(R.id.gridView)
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(mContext, ArticleListActivity.class);
-        intent.putExtra("category", adapter.getItem(position));
-        startActivity(intent);
+        switch (position) {
+            case 0:
+                Intent intent = new Intent(mContext, ArticleListActivity.class);
+                intent.putExtra("category", adapter.getItem(position));
+                startActivity(intent);
+                break;
+            case 1:
+                intent = new Intent(mContext, CategoryActivity.class);
+                intent.putExtra("category", adapter.getItem(position));
+                startActivity(intent);
+                break;
+        }
     }
 }
