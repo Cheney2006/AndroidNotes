@@ -28,6 +28,56 @@
         <!-- SearchView -->
         <item name="searchViewStyle">@style/MySearchViewStyle</item>
 
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+
+        <!--<item name="popupMenuStyle">@style/Widget.IOSched.PopupMenu</item>-->
+        <item name="listPopupWindowStyle">@style/CustomListPopupMenu</item>
+        <item name="dropDownListViewStyle">@style/CustomListViewDropDown</item>
+        <item name="actionBarStyle">@style/AbStyle</item>
+    </style>
+
+    <style name="AbStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="elevation">2dp</item>
+        <item name="displayOptions">homeAsUp|showTitle</item>
+        <!--showHome-->
+    </style>
+
+    <style name="CustomListPopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="android:dropDownSelector">@color/color_tab_pressed</item>
+        <item name="android:popupBackground">@color/colorSecondaryDark</item>
+    </style>
+
+    <style name="CustomThemeToolbarDarkOverflow" parent="Theme.AppCompat">
+        <!-- android:textColorPrimary is the  color of the title text
+             in the Toolbar, in the Theme.AppCompat theme:  -->
+        <!--<item name="android:textColorPrimary">@color/abc_primary_text_material_light</item>-->
+
+        <!-- android:textColorPrimaryInverse is the  color of the title
+             text in the Toolbar, in the Theme.AppCompat.Light theme:  -->
+        <!-- <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item> -->
+
+        <!-- android:actionMenuTextColor is the color of the text of
+              action (menu) items in the Toolbar, at least in the
+              Theme.AppCompat theme.
+              For some reason, they already get the textColorPrimary
+              when running on API 21, but not on older versions of
+              Android, so this is only necessary to support older
+              Android versions.-->
+      <!--  <item name="actionMenuTextColor">@color/abc_primary_text_material_light</item>-->
+        <!-- android:textColorSecondary is the color of the menu
+             overflow icon (three vertical dots) -->
+      <!--  <item name="android:textColorSecondary">@color/abc_secondary_text_material_light</item>-->
+
+        <!-- This would set the toolbar's background color,
+              but setting this also changes the popup menu's background,
+              even if we define popupTheme for our <Toolbar> -->
+         <item name="android:background">@color/colorSecondaryDark</item>
+        <item name="dropDownListViewStyle">@style/CustomListViewDropDown</item>
+    </style>
+
+    <style name="CustomListViewDropDown" parent="Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:divider">@color/colorSecondary</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
 
     <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
@@ -50,5 +100,12 @@
     <item name="suggestionRowLayout">...</item>
         -->
 
+    </style>
+
+    <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <!--兼容Api 21之前的版本 -->
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">10dip</item>
+        <item name="android:dropDownHorizontalOffset">40dip</item>
     </style>
 </resources>

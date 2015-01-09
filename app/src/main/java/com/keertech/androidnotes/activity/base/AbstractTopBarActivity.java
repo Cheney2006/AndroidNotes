@@ -31,7 +31,7 @@ import com.keertech.androidnotes.R;
  */
 public abstract class AbstractTopBarActivity extends AbstractActivity {
 
-    private Toolbar toolbar;
+    protected Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

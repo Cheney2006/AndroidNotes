@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawerLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <GridView
         android:id="@+id/gridView"
@@ -18,4 +19,18 @@
         android:scrollbarStyle="insideOverlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-</LinearLayout>
+
+    <!--  android:background="?attr/colorPrimaryDark"-->
+    <ListView
+        android:id="@+id/navDrawer"
+        android:layout_width="@dimen/dimen_navdrawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="?attr/colorPrimaryDark"
+        android:choiceMode="singleChoice"
+        android:divider="@drawable/bg_list_item"
+        android:dividerHeight="@dimen/dimen_divider_height"
+        android:drawSelectorOnTop="false"></ListView>
+
+</android.support.v4.widget.DrawerLayout>
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryDark">@color/statusbar_bg</item>
+        <item name="colorAccent">@color/theme</item>
+        <item name="searchViewStyle">@style/MySearchViewStyle</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:windowBackground">@color/background_material_light</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu_Light</item>
+        <item name="android:dialogTheme">@style/DialogTheme_Light</item>
+        <item name="android:listPopupWindowStyle">@style/PopupMenu_Light</item>
+        <item name="android:actionMenuTextColor">@color/theme</item>
+        <item name="android:actionDropDownStyle">@style/SpinnerDropdown_Light</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerDropdown_Light</item>
+        <item name="android:actionModeCloseDrawable">@drawable/app_ic_cab_done_holo_dark</item>
+        <item name="android:actionBarTabBarStyle">@style/ActionBarTabBar</item>
+        <item name="android:actionBarTabTextStyle">@style/ActionBarTabBarText</item>
+        <item name="android:actionOverflowButtonStyle">@style/Overflow_Dark</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/app_fastscroll_thumb_holo</item>
+        <item name="android:panelBackground">@drawable/app_menu_hardkey_panel_holo_light</item>
+        <item name="android:progressBarStyle">@style/ProgressBarHorizontal</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView_Light</item>
+        <item name="android:divider">@drawable/app_action_bar_divider</item>
+        <item name="android:listViewStyle">@style/ListViewStyle_light</item>
+        <item name="android:progressBarStyleLarge">@style/ProgressBar_Large</item>
+        <item name="android:alertDialogStyle">@style/AlertDialog_Light</item>
+        <item name="android:listDividerAlertDialog">@drawable/app_list_divider_holo_light</item>
+        <item name="android:typeface">monospace</item>
+        <item name="background_all">@color/background_light</item>
+        <item name="card_selector_all">@drawable/app_card_selector_light</item>
+        <item name="navigation_background_all">@color/navigation_background_light</item>
+        <item name="navigation_divider_all">@drawable/app_nav_drawer_divider_holo_light</item>
+        <item name="text_all">@color/black</item>
+        <item name="text_all_secondary">@color/semiblack</item>
+        <item name="text_all_invert">@color/white</item>
+        <item name="button_all">@drawable/app_btn_default_holo_light</item>
+        <item name="text_back_all">@drawable/app_text_back_light</item>
+        <item name="text_back_small_all">@drawable/app_text_back_small_light</item>
+        <item name="text_divider_all">@drawable/app_text_divider2_light</item>
+        <item name="semi_back">@color/semiwhite</item>
+        <item name="text_accent_all">@style/ThemeText_Light</item>
+        <item name="text_accent_small_all">@style/ThemeText_Light</item>
+        <item name="text_theme">@color/theme</item>
+        <item name="icon_title_background_all">@color/dark_grey</item>
+    </style>
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/app_textfield_default</item>
+        <item name="closeIcon">@drawable/app_ic_cab_done_holo_dark</item>
+        <item name="searchIcon">@drawable/app_ic_menu_search</item>
+    </style>
+
+    <style name="DropDownListView_Light" parent="android:Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/app_item_background_holo_light</item>
+    </style>
+
+    <style name="SpinnerDropdown_Light" parent="android:Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/app_spinner_default_holo_dark</item>
+        <item name="android:popupBackground">@drawable/app_menu_panel_holo_light</item>
+        <item name="android:dropDownSelector">@drawable/app_item_background_holo_light</item>
+    </style>-->
+</resources>

@@ -13,4 +13,5 @@
     <dimen name="dimen_layout_padding_top">8dp</dimen>
     <dimen name="dimen_sub_margin_top">3dp</dimen>
     <dimen name="dimen_divider_height">1dp</dimen>
+    <dimen name="dimen_navdrawer_width">260dp</dimen>
 </resources>

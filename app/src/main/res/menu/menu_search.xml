@@ -16,5 +16,10 @@
         android:title="@string/txt_search"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_edit"
+        android:title="@string/txt_search"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="ifRoom" />
 
 </menu>
